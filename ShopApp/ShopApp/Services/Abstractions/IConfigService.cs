@@ -1,6 +1,4 @@
-﻿using ShopApp.Configs;
-
-namespace ShopApp.Services.Abstractions
+﻿namespace ShopApp.Services.Abstractions
 {
     public interface IConfigService
     {

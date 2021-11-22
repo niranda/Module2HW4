@@ -1,30 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ShopApp.Models
+﻿namespace ShopApp.Models
 {
     public class GiraffeSpecies : ArtiodactylsSquad
     {
         public GiraffeSpecies(
            string name,
-           double weight,
+           double weightInKg,
            bool isCirculatorySystem,
-           double height,
-           double woolLength,
+           double heightInCm,
+           double woolLengthInMm,
            EatingType eatingType,
            string hoofShape,
-           double neckLength,
+           double neckLengthInCm,
            double numberOfSpots)
-           : base(name, weight, isCirculatorySystem, height, woolLength, eatingType, hoofShape)
+           : base(name, weightInKg, isCirculatorySystem, heightInCm, woolLengthInMm, eatingType, hoofShape)
         {
-            NeckLength = neckLength;
+            NeckLengthInCm = neckLengthInCm;
             NumberOfSpots = numberOfSpots;
         }
 
-        public double NeckLength { get; set; }
+        public double NeckLengthInCm { get; set; }
         public double NumberOfSpots { get; set; }
     }
 }

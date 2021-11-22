@@ -1,33 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ShopApp.Models
+﻿namespace ShopApp.Models
 {
     public class ElephantSpecies : ArtiodactylsSquad
     {
         public ElephantSpecies(
           string name,
-          double weight,
+          double weightInKg,
           bool isCirculatorySystem,
-          double height,
-          double woolLength,
+          double heightInCm,
+          double woolLengthInMm,
           EatingType eatingType,
           string hoofShape,
-          double earsWidth,
-          double trunkLength,
+          double earsWidthInCm,
+          double trunkLengthInCm,
           string subSpecies)
-          : base(name, weight, isCirculatorySystem, height, woolLength, eatingType, hoofShape)
+          : base(name, weightInKg, isCirculatorySystem, heightInCm, woolLengthInMm, eatingType, hoofShape)
         {
-            EarsWidth = earsWidth;
-            TrunkLength = trunkLength;
+            EarsWidthInCm = earsWidthInCm;
+            TrunkLengthInCm = trunkLengthInCm;
             SubSpecies = subSpecies;
         }
 
-        public double EarsWidth { get; set; }
-        public double TrunkLength { get; set; }
+        public double EarsWidthInCm { get; set; }
+        public double TrunkLengthInCm { get; set; }
         public string SubSpecies { get; set; }
     }
 }

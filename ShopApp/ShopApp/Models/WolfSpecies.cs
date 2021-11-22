@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ShopApp.Models
+﻿namespace ShopApp.Models
 {
     public class WolfSpecies : PredatorsSquad
     {
         public WolfSpecies(
             string name,
-            double weight,
+            double weightInKg,
             bool isCirculatorySystem,
-            double height,
-            double woolLength,
+            double heightInCm,
+            double woolLengthInMm,
             EatingType eatingType,
-            double fangsLength,
+            double fangsLengthInMm,
             bool isYellingOnMoon)
-            : base(name, weight, isCirculatorySystem, height, woolLength, eatingType, fangsLength)
+            : base(name, weightInKg, isCirculatorySystem, heightInCm, woolLengthInMm, eatingType, fangsLengthInMm)
         {
             IsYellingOnMoon = isYellingOnMoon;
         }

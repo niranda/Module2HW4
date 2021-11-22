@@ -15,7 +15,7 @@ namespace ShopApp.Services
                     break;
                 }
 
-                Console.WriteLine($"{i + 1}. '{animals[i].Name}', weight: {animals[i].Weight}");
+                Console.WriteLine($"{i + 1}. '{animals[i].Name}', weight: {animals[i].WeightInKg}kg");
             }
 
             Console.WriteLine();

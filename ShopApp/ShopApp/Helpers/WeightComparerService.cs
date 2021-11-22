@@ -11,11 +11,11 @@ namespace ShopApp.Helpers
             {
                 return 0;
             }
-            else if (firstAnimal.Weight > secondAnimal.Weight)
+            else if (firstAnimal.WeightInKg > secondAnimal.WeightInKg)
             {
                 return 1;
             }
-            else if (firstAnimal.Weight < secondAnimal.Weight)
+            else if (firstAnimal.WeightInKg < secondAnimal.WeightInKg)
             {
                 return -1;
             }

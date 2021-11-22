@@ -4,13 +4,13 @@
     {
         public ArtiodactylsSquad(
             string name,
-            double weight,
+            double weightInKg,
             bool isCirculatorySystem,
-            double height,
-            double woolLength,
+            double heightInCm,
+            double woolLengthInMm,
             EatingType eatingType,
             string hoofShape)
-            : base(name, weight, isCirculatorySystem, height, woolLength, eatingType)
+            : base(name, weightInKg, isCirculatorySystem, heightInCm, woolLengthInMm, eatingType)
         {
             HoofShape = hoofShape;
         }
