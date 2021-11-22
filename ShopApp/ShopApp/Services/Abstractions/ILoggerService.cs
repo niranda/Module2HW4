@@ -4,9 +4,9 @@ namespace ShopApp.Services.Abstractions
 {
     public interface ILoggerService
     {
-        void SuccessfulTemplate(Sweet[] sweets);
-        void SuccessfulBuildLog(Sweet[] sweets, double giftWeight);
-        void SuccessfulSortLog(Sweet[] sweets);
-        void SuccessfulSearchLog(Sweet[] sweets);
+        void SuccessfulTemplate(Animals[] animals);
+        void SuccessfulBuildLog(Animals[] animals, int numberOfAnimals);
+        void SuccessfulSortLog(Animals[] animals);
+        void SuccessfulSearchLog(Animals[] animals);
     }
 }

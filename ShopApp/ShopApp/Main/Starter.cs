@@ -6,42 +6,39 @@ namespace StyleCop.Main
 {
     public class Starter
     {
-        private readonly IGiftService _giftService;
+        private readonly IContainerService _containerService;
         private readonly ILoggerService _notification;
         private readonly ISortService _sort;
 
-        public Starter(IGiftService giftService, ILoggerService notification, ISortService sort)
+        public Starter(IContainerService giftService, ILoggerService notification, ISortService sort)
         {
-            _giftService = giftService;
+            _containerService = giftService;
             _notification = notification;
             _sort = sort;
         }
 
         public void Run()
         {
-            var blackCowCandy = new FilledChocolate("Black Cow", SweetType.Chocolate, 10.34, "Cube", "Big Candy Ltd.", 15, 48, false, 30, "Condensed milk");
+            var blackLion = new LionSpecies("Black Lion", 310, true, 120, 15, EatingType.Predator, 30, 23);
+            var commonWolf = new WolfSpecies("Common Wolf", 89, true, 80, 20, EatingType.Predator, 25, true);
+            var spottedGiraffe = new GiraffeSpecies("Spotted Giraffe", 300, true, 500, 10, EatingType.Herbivorous, "Round", 300, 1970);
+            var indianElephant = new ElephantSpecies("Indian Elephant", 1000, true, 300, 2, EatingType.Herbivorous, "Round", 50, 200, "Indian");
 
-            var darkPleasureChocolateBar = new BitterChocolate("Dark Pleasure", SweetType.Chocolate, 100.466, "Parallelepiped", "Tasty and Cheap Inc.", 45, 87, true, 17);
+            var availableAnimals = new Animals[4] { blackLion, commonWolf, spottedGiraffe, indianElephant };
 
-            var deliciousLollipopCaramel = new Caramel("Delicious Lollipop", SweetType.Caramel, 6.314, "Sphere", "Big Candy Ltd.", 8, "Lollipop", "Orange");
+            _containerService.BuildContainer(availableAnimals);
+            var builtContainer = _containerService.GetContainer();
+            var numberOfAnimals = _containerService.GetNumberOfAnimals();
+            _notification.SuccessfulBuildLog(builtContainer, numberOfAnimals);
 
-            var milkyRoadChocolateBar = new FilledChocolate("Milky Road", SweetType.Chocolate, 120.6, "Parallelepiped", "Good Food Inc.", 40, 44, true, 23, "Strawberry jam");
+            var sortedByWeight = _sort.SortByWeight(builtContainer);
+            _notification.SuccessfulSortLog(sortedByWeight);
 
-            var availableSweets = new Sweet[4] { blackCowCandy, darkPleasureChocolateBar, deliciousLollipopCaramel, milkyRoadChocolateBar };
+            var findBlackLion = _containerService.FindByСriterion("Black Lion");
+            _notification.SuccessfulSearchLog(findBlackLion);
 
-            _giftService.BuildGift(availableSweets);
-            var builtGift = _giftService.GetGift();
-            var giftWeight = _giftService.GetGiftWeight();
-            _notification.SuccessfulBuildLog(builtGift, giftWeight);
-
-            var sortedByPriceGift = _sort.SortByPrice(builtGift);
-            _notification.SuccessfulSortLog(sortedByPriceGift);
-
-            var chocolateSweetsGift = _giftService.FindByСriterion(SweetType.Chocolate);
-            _notification.SuccessfulSearchLog(chocolateSweetsGift);
-
-            var caramelSweetsGift = _giftService.FindByСriterion(SweetType.Caramel);
-            _notification.SuccessfulSearchLog(caramelSweetsGift);
+            var findSpottedGiraffe = _containerService.FindByСriterion("Spotted Giraffe");
+            _notification.SuccessfulSearchLog(findSpottedGiraffe);
         }
     }
 }

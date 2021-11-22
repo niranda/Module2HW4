@@ -6,42 +6,42 @@ namespace ShopApp.Services
 {
     public class LoggerService : ILoggerService
     {
-        public void SuccessfulTemplate(Sweet[] sweets)
+        public void SuccessfulTemplate(Animals[] animals)
         {
-            for (var i = 0; i < sweets.Length; i++)
+            for (var i = 0; i < animals.Length; i++)
             {
-                if (sweets[i] == null)
+                if (animals[i] == null)
                 {
                     break;
                 }
 
-                Console.WriteLine($"{i + 1}. '{sweets[i].Name}', type: {sweets[i].Type}, weight: {Math.Round(sweets[i].WeightInGm, 2)}gm, price: {Math.Round(sweets[i].PriceInUAH, 2)} UAH");
+                Console.WriteLine($"{i + 1}. '{animals[i].Name}', weight: {animals[i].Weight}");
             }
 
             Console.WriteLine();
         }
 
-        public void SuccessfulBuildLog(Sweet[] sweets, double giftWeight)
+        public void SuccessfulBuildLog(Animals[] animals, int numberOfAnimals)
         {
-            Console.WriteLine("Your gift was formed successfully! You can see the list of included items below:");
+            Console.WriteLine("The animals were transferred to the reserve successfully! You can see the list of included creatures below:");
             Console.WriteLine();
-            SuccessfulTemplate(sweets);
-            Console.WriteLine($"Overall weight: {Math.Round(giftWeight, 2)}gm");
+            SuccessfulTemplate(animals);
+            Console.WriteLine($"Total number of different animals: {numberOfAnimals}");
             Console.WriteLine();
         }
 
-        public void SuccessfulSortLog(Sweet[] sweets)
+        public void SuccessfulSortLog(Animals[] animals)
         {
-            Console.WriteLine("Your gift was sorted successfully. Results are below:");
+            Console.WriteLine("The animals were sorted successfully. Results are below:");
             Console.WriteLine();
-            SuccessfulTemplate(sweets);
+            SuccessfulTemplate(animals);
         }
 
-        public void SuccessfulSearchLog(Sweet[] sweets)
+        public void SuccessfulSearchLog(Animals[] animals)
         {
             Console.WriteLine("Your query was processed successfully. Results are below:");
             Console.WriteLine();
-            SuccessfulTemplate(sweets);
+            SuccessfulTemplate(animals);
         }
     }
 }

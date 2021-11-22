@@ -7,10 +7,10 @@ namespace ShopApp.Services
 {
     public class SortService : ISortService
     {
-        public Sweet[] SortByPrice(Sweet[] sweets)
+        public Animals[] SortByWeight(Animals[] animals)
         {
-            Array.Sort(sweets, new PriceComparerService());
-            return sweets;
+            Array.Sort(animals, new WeightComparerService());
+            return animals;
         }
     }
 }

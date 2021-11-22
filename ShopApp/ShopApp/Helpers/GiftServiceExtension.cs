@@ -1,26 +1,25 @@
 ﻿using ShopApp.Models;
 using ShopApp.Services.Abstractions;
-using ShopApp.Services;
 
 namespace ShopApp.Helpers
 {
     public static class GiftServiceExtension
     {
-        public static Sweet[] FindByСriterion(this IGiftService giftService, SweetType criterion)
+        public static Animals[] FindByСriterion(this IContainerService containerService, string criterion)
         {
-            var sweetsArray = giftService.GetGift();
-            var outputSweetsArray = new Sweet[sweetsArray.Length];
+            var animalsArray = containerService.GetContainer();
+            var outputSweetsArray = new Animals[animalsArray.Length];
             var outputIndex = 0;
-            for (var i = 0; i < sweetsArray.Length; i++)
+            for (var i = 0; i < animalsArray.Length; i++)
             {
-                if (sweetsArray[i] == null)
+                if (animalsArray[i] == null)
                 {
                     break;
                 }
 
-                if (sweetsArray[i].Type == criterion)
+                if (animalsArray[i].Name == criterion)
                 {
-                    outputSweetsArray[outputIndex] = sweetsArray[i];
+                    outputSweetsArray[outputIndex] = animalsArray[i];
                     outputIndex++;
                 }
             }

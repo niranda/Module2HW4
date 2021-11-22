@@ -11,9 +11,9 @@ namespace StyleCop.Main
         public static void Main(string[] args)
         {
             var serviceProvider = new ServiceCollection()
-                .AddTransient<IGiftProvider, GiftProvider>()
+                .AddTransient<IContainerProvider, ContainerProvider>()
                 .AddSingleton<IConfigService, ConfigService>()
-                .AddSingleton<IGiftService, GiftService>()
+                .AddSingleton<IContainerService, ContainerService>()
                 .AddSingleton<ILoggerService, LoggerService>()
                 .AddTransient<ISortService, SortService>()
                 .AddTransient<Starter>()
